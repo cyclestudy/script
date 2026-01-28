@@ -233,7 +233,7 @@ uninstall() {
         systemctl reset-failed
     fi
     rm /etc/v2node/ -rf
-    rm /usr/local/v2node/ -rf
+    rm /usr/v2node/ -rf
 
     echo ""
     echo -e "卸载成功，如果你想删除此脚本，则退出脚本后运行 ${green}rm /usr/bin/v2node -f${plain} 进行删除"
@@ -384,7 +384,7 @@ update_shell() {
 
 # 0: running, 1: not running, 2: not installed
 check_status() {
-    if [[ ! -f /usr/local/v2node/v2node ]]; then
+    if [[ ! -f /usr/v2node/v2node ]]; then
         return 2
     fi
     if [[ x"${release}" == x"alpine" ]]; then
@@ -477,7 +477,7 @@ show_enable_status() {
 
 show_v2node_version() {
     echo -n "v2node 版本："
-    /usr/local/v2node/v2node version
+    /usr/v2node/v2node version
     echo ""
     if [[ $# == 0 ]]; then
         before_show_menu
