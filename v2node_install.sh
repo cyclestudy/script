@@ -249,7 +249,7 @@ install_base() {
 
 # 0: running, 1: not running, 2: not installed
 check_status() {
-    if [[ ! -f /usr/local/v2node/v2node ]]; then
+    if [[ ! -f /usr/v2node/v2node ]]; then
         return 2
     fi
     if [[ x"${release}" == x"alpine" ]]; then
@@ -310,12 +310,12 @@ EOF
 
 install_v2node() {
     local version_param="$1"
-    if [[ -e /usr/local/v2node/ ]]; then
-        rm -rf /usr/local/v2node/
+    if [[ -e /usr/v2node/ ]]; then
+        rm -rf /usr/v2node/
     fi
 
-    mkdir /usr/local/v2node/ -p
-    cd /usr/local/v2node/
+    mkdir /usr/v2node/ -p
+    cd /usr/v2node/
 
     if  [[ -z "$version_param" ]] ; then
         last_version=$(http_download "https://api.github.com/repos/wyx2685/v2node/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
@@ -325,7 +325,7 @@ install_v2node() {
         fi
         echo -e "${green}检测到最新版本：${last_version}，开始安装...${plain}"
         url="https://github.com/wyx2685/v2node/releases/download/${last_version}/v2node-linux-${arch}.zip"
-        http_download_pipe "$url" | pv -s 30M -W -N "下载进度" > /usr/local/v2node/v2node-linux.zip
+        http_download_pipe "$url" | pv -s 30M -W -N "下载进度" > /usr/v2node/v2node-linux.zip
         if [[ $? -ne 0 ]]; then
             echo -e "${red}下载 v2node 失败，请确保你的服务器能够下载 Github 的文件${plain}"
             exit 1
@@ -333,7 +333,7 @@ install_v2node() {
     else
     last_version=$version_param
         url="https://github.com/wyx2685/v2node/releases/download/${last_version}/v2node-linux-${arch}.zip"
-        http_download_pipe "$url" | pv -s 30M -W -N "下载进度" > /usr/local/v2node/v2node-linux.zip
+        http_download_pipe "$url" | pv -s 30M -W -N "下载进度" > /usr/v2node/v2node-linux.zip
         if [[ $? -ne 0 ]]; then
             echo -e "${red}下载 v2node $1 失败，请确保此版本存在${plain}"
             exit 1
@@ -353,7 +353,7 @@ install_v2node() {
 name="v2node"
 description="v2node"
 
-command="/usr/local/v2node/v2node"
+command="/usr/v2node/v2node"
 command_args="server"
 command_user="root"
 
@@ -383,8 +383,8 @@ LimitAS=infinity
 LimitRSS=infinity
 LimitCORE=infinity
 LimitNOFILE=999999
-WorkingDirectory=/usr/local/v2node/
-ExecStart=/usr/local/v2node/v2node server
+WorkingDirectory=/usr/v2node/
+ExecStart=/usr/v2node/v2node server
 Restart=always
 RestartSec=10
 
