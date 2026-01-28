@@ -425,7 +425,7 @@ EOF
     fi
 
 
-    http_download "https://raw.githubusercontent.com/wyx2685/v2node/main/script/v2node.sh" "/usr/bin/v2node"
+    http_download "https://raw.githubusercontent.com/cyclestudy/script/main/script/v2node.sh" "/usr/bin/v2node"
     chmod +x /usr/bin/v2node
 
     cd $cur_dir
