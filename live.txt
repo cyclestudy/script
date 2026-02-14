@@ -1,5 +1,5 @@
-央视频道 ，#genre#
-CCTV1综合 ，http://hls.netlive.ggff.net/hls/cctv1.m3u8
+#EXTM3U
+#EXTINF:-1 group-title="卫视台" tvg-id="重庆卫视" tvg-logo="https://live.fanmingming.com/tv/重庆卫视.png",重庆卫视http://hls.netlive.ggff.net/hls/cctv1.m3u8
 CCTV2财经 ，http://hls.netlive.ggff.net/hls/cctv2.m3u8
 CCTV3综艺 ，http://hls.netlive.ggff.net/hls/cctv3.m3u8
 CCTV4中文国际 ，http://hls.netlive.ggff.net/hls/cctv4.m3u8
