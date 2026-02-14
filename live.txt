@@ -1,5 +1,6 @@
 #EXTM3U
-#EXTINF:-1 group-title="央视频道" tvg-logo="https://i.imgur.com/ykPNNwQ.png" tvg-id="nudelive",CATV1
-https://sm.uy/nudelivesocks5cache.php
 #EXTINF:-1  tvg-name="CCTV1" tvg-logo="https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/logo/CCTV1.png"  group-title="央视频道",CCTV1
 http://23.237.228.134/live5/CCTV1.m3u8
+#EXTINF:-1 group-title="央视频道" tvg-logo="https://i.imgur.com/ykPNNwQ.png" tvg-id="nudelive",CATV1
+https://sm.uy/nudelivesocks5cache.php
+
